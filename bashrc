@@ -226,10 +226,8 @@ for attr in 0 1 4 5 7 ; do
 done
 }
 
-hostname=`hostname`
-
-[ has '__git_ps1' ] && gitps1="$yellow$(__git_ps1)"
-export PS1="\n$red╔ $green\T \d ${orange}\u@$hostname$base01:$blue\w$gitps1\n$red╚ $cyan\$ $reset"
+#[ has '__git_ps1' ] && gitps1="$yellow$(__git_ps1)"
+export PS1="\n$red╔ $green\T \d ${orange}\u@\h$base01:$blue\w$gitps1\n$red╚ $cyan\$ $reset"
 alias clear='clear; cat $HOME/config/motd'
 
 #---------------------------------- Node ----------------------------------
@@ -295,8 +293,8 @@ alias mepub='pub $SITEME'
 if [ "$PLATFORM" == windows ]; then
 
 # god i hate this path
-export PF="/c/Program Files"
-export XPF="/c/Program Files (x86)"
+export PF='"/c/Program Files"'
+export XPF='"/c/Program Files (x86)"'
 alias pf="cd \"$PF\""
 alias xpf="cd \"$XPF\""
 
@@ -312,6 +310,7 @@ $PATH:\
 export PATH
 
 alias gamemaker=Gamemaker-Studio.exe
+alias single='unset BASHRC_LOADED && cd $HOME && start "" "c:\program files (x86)\git\bin\sh.exe" --login -i'
 
 # have to force it, normally 'msys'
 export TERM=xterm-256color
