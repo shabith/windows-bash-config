@@ -313,7 +313,7 @@ alias gamemaker=Gamemaker-Studio.exe
 alias single='unset BASHRC_LOADED && cd $HOME && start "" "c:\program files (x86)\git\bin\sh.exe" --login -i'
 
 # have to force it, normally 'msys'
-export TERM=xterm-256color
+export TERM=xterm-color
 
 # called from bash_setup
 windows_bash_setup () {
