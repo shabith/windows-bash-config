@@ -15,9 +15,4 @@ Designed to be a starting point to fork and customize for your own.
 
   ```
 
-TODO
-====
-
-* Test for Bourne/Korn shell graceful compatibility where possible
-
 [powergit]: http://github.com/skilstak/powergit
