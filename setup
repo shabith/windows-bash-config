@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## Prefer a single file to rule them all.
+
+. bashrc
+echo $PLATFORM
+bash_setup
+git_setup
+
+echo "bash should now be setup, restart a terminal to confirm"
