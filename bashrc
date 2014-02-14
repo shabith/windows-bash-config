@@ -292,11 +292,9 @@ alias mepub='pub $SITEME'
 
 if [ "$PLATFORM" == windows ]; then
 
-# god i hate this path
-export PF='"/c/Program Files"'
-export XPF='"/c/Program Files (x86)"'
-alias pf="cd \"$PF\""
-alias xpf="cd \"$XPF\""
+# god i hate these paths
+export PF=/c/Program\ Files
+export XPF=/c/Program\ Files\ \(x86\)
 
 # still safer doing it ourselves instead of the git-bash system-wide option
 # but yeah, i'll be updating this one a lot
