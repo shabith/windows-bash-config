@@ -164,8 +164,20 @@ join () {
   perl -e '$d=shift; print(join($d,@ARGV))' "$@"
 }
 
+# no basename is not the same
 chompsuf () {
   perl -e '@l=grep{s/\.[^\.]+$//}@ARGV;print"@l"' "$@"
+}
+
+resuf () {
+  _from=$1
+  _to=$2
+  shift 2
+  for _name in "$*"; do
+    _new=`chompsuf $_name`.$_to
+    echo "$_name -> $_new"
+  done
+  unset _from _to _name _new
 }
 
 #-------------------------------- PowerGit --------------------------------
