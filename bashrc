@@ -159,8 +159,13 @@ grepall () {
   find . \( ! -regex '.*/\..*' \) -type f -exec grep "$1" {} /dev/null \;
 }
 
+# why perl versions that could do with bash param sub? bourne compat
 join () {
   perl -e '$d=shift; print(join($d,@ARGV))' "$@"
+}
+
+chompsuf () {
+  perl -e '@l=grep{s/\.[^\.]+$//}@ARGV;print"@l"' "$@"
 }
 
 #-------------------------------- PowerGit --------------------------------
