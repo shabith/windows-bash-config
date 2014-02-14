@@ -372,6 +372,7 @@ bash_setup () {
 }
 
 git_setup () {
+  git config --global push.default simple
   git clone git@github.com:skilstak/powergit.git $HOME/powergit
   if [ $? == 0 ]
   then
