@@ -384,6 +384,7 @@ bash_setup () {
   echo '. $HOME/config/bashrc' > "$HOME/.bashrc"
   echo '. $HOME/config/bashrc' > "$HOME/.bash_profile"
   echo '. $HOME/config/bashrc' > "$HOME/.profile"
+  [ ! -d "$HOME/tmp" ] && mkdir "$HOME/tmp"
   case "$PLATFORM" in
     windows) windows_bash_setup ;;
     linux)   linux_bash_setup ;;
