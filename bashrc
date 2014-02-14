@@ -114,6 +114,7 @@ has() {
   return $?
 }
 
+# not an alias cuz we use in here
 tstamp () {
   date +%Y%m%d%H%M%S
 }
@@ -124,7 +125,6 @@ preserve () {
 
 alias ls='ls -h --color'
 alias more=less
-alias whichl='type -a'
 
 alias lx='ls -lXB'         #  Sort by extension.
 alias lk='ls -lSr'         #  Sort by size, biggest last.
