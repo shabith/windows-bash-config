@@ -373,8 +373,8 @@ bash_setup () {
 
 git_setup () {
   git config --global push.default simple
-  git clone git@github.com:skilstak/powergit.git $HOME/powergit
-  if [ $? == 0 ]
+  git clone git@github.com:skilstak/powergit.git "$HOME/powergit" 2>/dev/null
+  if [ $? == 0 -o -d "$HOME/powergit" ]
   then
     gclone
   fi
