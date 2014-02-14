@@ -173,9 +173,14 @@ resuf () {
   _from=$1
   _to=$2
   shift 2
-  for _name in "$*"; do
-    _new=`chompsuf $_name`.$_to
-    echo "$_name -> $_new"
+  for _name in "$@"; do
+    case $_name in
+      *.$_from)
+        _new=`chompsuf $_name`.$_to
+        echo "$_name -> $_new"
+        mv $_name $_new
+        ;;
+    esac
   done
   unset _from _to _name _new
 }
