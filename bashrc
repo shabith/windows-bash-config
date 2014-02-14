@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return 2>/dev/null
 
 ## bail if already loaded (prefer a single file)
-[ ! -z "$BASHRC_LOADED" ] && return 2>/dev/null
+[ ! -z "$BASHRC_LOADED" ] && return
 BASHRC_LOADED=true
 export BASHRC_LOADED
 
@@ -321,6 +321,7 @@ export XPF=/c/Program\ Files\ \(x86\)
 # still safer doing it ourselves instead of the git-bash system-wide option
 # but yeah, i'll be updating this one a lot
 PATH=$XPF/Vim/Vim74:\
+$XPF/Git/bin:\
 /c/Python27:\
 $PF/Java/jdk1.7.0_51/bin:\
 $HOME/GameMaker-Studio\ 1.2:\
