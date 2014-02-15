@@ -354,6 +354,7 @@ windows_bash_setup () {
 elif [ "$PLATFORM" == linux ]; then
 
 alias listens='netstat -tulpn'
+alias ip="ifconfig | perl -ne '/^\s*inet addr/ and print'"
 
 linux_bash_setup () {
   echo "Nothing special needed. What a surprise."
