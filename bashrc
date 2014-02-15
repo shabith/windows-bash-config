@@ -332,6 +332,7 @@ export PATH
 
 alias gamemaker=Gamemaker-Studio.exe
 alias single='unset BASHRC_LOADED && cd $HOME && start "" "c:\program files (x86)\git\bin\sh.exe" --login -i'
+alias ip="ipconfig | perl -ne '/^\s*IPv4/ and print'"
 
 # have to force it, normally 'msys'
 export TERM=xterm-color
