@@ -259,8 +259,10 @@ for attr in 0 1 4 5 7 ; do
 done
 }
 
-#[ has '__git_ps1' ] && gitps1="$yellow$(__git_ps1)"
-export PS1="\n$red╔ $green\T \d ${orange}\u@\h$base01:$blue\w$gitps1\n$red╚ $cyan\$ $reset"
+alias bigprompt='export PS1="\n$red╔ $green\T \d ${orange}\u@\h$base01:$blue\w$gitps1\n$red╚ $cyan\$ $reset"'
+alias medprompt='export PS1="${base0}\u$base01@$base00\h:\W$cyan\$ $reset"'
+alias pwdprompt='export PS1="${base01}\W$cyan\$ $reset"'
+alias noprompt='export PS1="$cyan\$ $reset"'
 alias clear='clear; cat $HOME/config/motd'
 
 #---------------------------------- Node ----------------------------------
