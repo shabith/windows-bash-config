@@ -354,7 +354,7 @@ windows_bash_setup () {
 elif [ "$PLATFORM" == linux ]; then
 
 linux_bash_setup () {
-  echo "Nothing special needed. What a surprise."
+  alias listners='netstat -tulpn'
 }
 
 ###########################################################################
