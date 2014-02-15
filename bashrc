@@ -125,15 +125,11 @@ has() {
   return $?
 }
 
-# not an alias cuz we use in here
-tstamp () {
-  date +%Y%m%d%H%M%S
-}
-
 preserve () {
     [ -e "$1" ] && mv "$1" "$1"_`date +%Y%m%d%H%M%S`
 }
 
+alias tstamp='date +%Y%m%d%H%M%S'
 alias ls='ls -h --color'
 alias more=less
 
@@ -263,6 +259,8 @@ alias bigprompt='export PS1="\n$red╔ $green\T \d ${orange}\u@\h$base01:$blue\w
 alias medprompt='export PS1="${base0}\u$base01@$base00\h:\W$cyan\$ $reset"'
 alias pwdprompt='export PS1="${base01}\W$cyan\$ $reset"'
 alias noprompt='export PS1="$cyan\$ $reset"'
+pwdprompt
+
 alias clear='clear; cat $HOME/config/motd'
 
 #---------------------------------- Node ----------------------------------
