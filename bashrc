@@ -262,6 +262,7 @@ alias noprompt='export PS1="$cyan\\$ $reset"'
 pwdprompt
 
 alias clear='clear; cat $HOME/config/motd'
+clear
 
 #---------------------------------- Node ----------------------------------
 
