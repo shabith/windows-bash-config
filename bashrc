@@ -82,14 +82,23 @@ _note () {
 complete -F _note note
 alias todo='note todo'
 
+#---------------------------------- ssh ----------------------------------
+
+start_ssh_agent () {
+  SSHAGENT=/usr/bin/ssh-agent
+  SSHAGENTARGS="-s"
+  if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+    eval `$SSHAGENT $SSHAGENTARGS`
+    trap "kill $SSH_AGENT_PID" 0
+  fi
+}
+
 _ssh () {
   local list=`perl -ne 'print "$1 " if /\s*Host\s+(\S+)/' ~/.ssh/config`
   local typed=${COMP_WORDS[COMP_CWORD]}
   COMPREPLY=( $(compgen -W "$list" -- $typed))
 }
 complete -F _ssh ssh
-
-#---------------------------------- ssh -----------------------------------
 
 # only enter a ssh password once, just enough to send the public key
 # and yeah, I only use RSA (http://security.stackexchange.com/a/51194/39787)
@@ -105,6 +114,8 @@ sshid () {
   rm ~/.ssh/config.bak 2>/dev/null
   perl -p -i.bak -e "s/^IdentityFile.*$/IdentityFile ~\/.ssh\/${id}_rsa/i" ~/.ssh/config
   rm ~/.ssh/config.bak 2>/dev/null
+  start_ssh_agent
+  ssh-add ~/.ssh/${id}_rsa
 }
 
 #--------------------------- Utility Functions ----------------------------
@@ -336,6 +347,7 @@ alias ip="ipconfig | perl -ne '/^\s*IPv4/ and print'"
 
 # have to force it, normally 'msys'
 export TERM=xterm-color
+
 
 # called from bash_setup
 windows_bash_setup () {
