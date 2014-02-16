@@ -47,30 +47,6 @@ $HOME/clone:\
 $PATH
 alias path='echo -e ${PATH//:/\\n}'
 
-#-------------------------------- Vim-ish ---------------------------------
-
-set -o vi
-if [ "`which vim 2>/dev/null`" ]; then
-  export EDITOR=vim
-  alias vi=vim
-else
-  export EDITOR=vi
-fi
-
-#TODO add keyword file completion
-vif () {
-  local file=`find . -name "*$**" ! -path '*images*' | head -1`
-  if [ -f "$file" ]; then
-    $EDITOR $file
-  else
-    $EDITOR $key # when actually want 'vi' but fat-fingered
-  fi
-}
-
-vic () {
-  $EDITOR `which $1`
-}
-
 #---------------------------------- Note ----------------------------------
 
 # god i love bash file completion
@@ -349,7 +325,6 @@ alias ip="ipconfig | perl -ne '/^\s*IPv4/ and print'"
 # have to force it, normally 'msys'
 export TERM=xterm-color
 
-
 # called from bash_setup
 windows_bash_setup () {
 
@@ -394,6 +369,32 @@ fi
 ###########################################################################
 ################################### MAIN ##################################
 ###########################################################################
+
+#-------------------------------- Vim-ish ---------------------------------
+
+set -o vi
+if [ "`which vim 2>/dev/null`" ]; then
+  export EDITOR=vim
+  alias vi=vim
+else
+  export EDITOR=vi
+fi
+
+#TODO add keyword file completion
+vif () {
+  local file=`find . -name "*$**" ! -path '*images*' | head -1`
+  if [ -f "$file" ]; then
+    $EDITOR $file
+  else
+    $EDITOR $key # when actually want 'vi' but fat-fingered
+  fi
+}
+
+vic () {
+  $EDITOR `which $1`
+}
+
+#--------------------------------------------------------------------------
 
 bash_setup () {
   preserve "$HOME/.bashrc"
