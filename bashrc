@@ -321,6 +321,7 @@ export PATH
 alias gamemaker=Gamemaker-Studio.exe
 alias single='unset BASHRC_LOADED && cd $HOME && start "" "c:\program files (x86)\git\bin\sh.exe" --login -i && cd -'
 alias ip="ipconfig | perl -ne '/^\s*IPv4/ and print'"
+alias psplugins='cd "/c/Program Files (x86)/Adobe/Adobe Photoshop CC/Plug-ins"'
 
 # have to force it, normally 'msys'
 export TERM=xterm-color
