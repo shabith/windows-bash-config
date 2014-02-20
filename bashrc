@@ -260,6 +260,10 @@ layout: post
 
 "
 
+vipost () {
+  $EDITOR `postname $*`
+}
+
 writepost () {
   local dir="$1"
   shift 1;
@@ -305,6 +309,8 @@ if [ "$PLATFORM" == windows ]; then
 # god i hate these paths
 export PF=/c/Program\ Files
 export XPF=/c/Program\ Files\ \(x86\)
+alias pf='cd "$PF"'
+alias xpf='cd "$XPF"'
 
 # still safer doing it ourselves instead of the git-bash system-wide option
 # but yeah, i'll be updating this one a lot
