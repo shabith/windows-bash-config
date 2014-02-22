@@ -170,7 +170,10 @@ resuf () {
 
 #-------------------------------- PowerGit --------------------------------
 
-export GITURLS=$HOME/config/giturls:$HOME/private/giturls
+export GITURLS=$HOME/config/giturls:\
+$HOME/custom/giturls:\
+$HOME/personal/giturls:\
+$HOME/private/giturls
 
 gcd () {
   cd `gls $1 | perl -e '@m=split(/\s+/,<STDIN>);print$m[1]'`
@@ -428,5 +431,7 @@ git_setup () {
 }
 
 # and for stuff we don't want in a public bashrc
+[ -s $HOME/custom/bashrc ] && . $HOME/custom/bashrc
 [ -s $HOME/personal/bashrc ] && . $HOME/personal/bashrc
+[ -s $HOME/private/bashrc ] && . $HOME/private/bashrc
 
