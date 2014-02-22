@@ -43,7 +43,6 @@ $HOME/mdaddlinks:\
 $HOME/filters:\
 $HOME/fmt:\
 $HOME/note:\
-$HOME/clone:\
 $PATH
 alias path='echo -e ${PATH//:/\\n}'
 
@@ -174,6 +173,7 @@ export GITURLS=$HOME/config/giturls:\
 $HOME/custom/giturls:\
 $HOME/personal/giturls:\
 $HOME/private/giturls
+alias gurlpath='echo -e ${GITURLS//:/\\n}'
 
 gcd () {
   cd `gls $1 | perl -e '@m=split(/\s+/,<STDIN>);print$m[1]'`
@@ -240,7 +240,24 @@ alias pwdprompt='export PS1="${base01}\W$cyan\\$ $reset"'
 alias noprompt='export PS1="$cyan\\$ $reset"'
 pwdprompt
 
-alias clear='clear; cat $HOME/config/motd'
+logo () {
+echo -e "$green#!/play/learn/program                                                          "  
+echo -e "           $red        __   .__.__            __          __                       "
+echo -e "           $red  _____|  | _|__|  |   _______/  |______  |  | __                   "
+echo -e "           $red /  ___/  |/ /  |  |  /  ___/\   __\__  \ |  |/ /                   "
+echo -e "           $red \___ \|    <|  |  |__\___ \  |  |  / __ \|    <                    "
+echo -ne "           $red/____  >__|_ \__|____/____  > |__| (____  /__|_ \\"
+echo -e "${base1}_______            "
+echo -ne "           $red     \/     \/            \/            \/     \\"
+echo -e "${base1}/______/            "
+echo -e "                                        ${cyan}Coding Arts                            "
+}
+
+smlogo () {
+  echo -e "${red}skilstak${base3}_$reset"
+}
+
+alias clear='clear; logo'
 clear
 
 #---------------------------------- Node ----------------------------------
