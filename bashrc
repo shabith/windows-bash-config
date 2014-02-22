@@ -241,7 +241,7 @@ alias noprompt='export PS1="$cyan\\$ $reset"'
 pwdprompt
 
 logo () {
-echo -e "$green#!/play/learn/program                                                          "  
+echo -e "$blue#!/play/learn/program                                                          "  
 echo -e "           $red        __   .__.__            __          __                       "
 echo -e "           $red  _____|  | _|__|  |   _______/  |______  |  | __                   "
 echo -e "           $red /  ___/  |/ /  |  |  /  ___/\   __\__  \ |  |/ /                   "
