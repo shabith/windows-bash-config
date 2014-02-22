@@ -427,6 +427,6 @@ git_setup () {
   fi
 }
 
-# and for stuff we really don't want in a public bashrc
-[ -s $HOME/private/bashrc ] && . $HOME/private/bashrc
+# and for stuff we don't want in a public bashrc
+[ -s $HOME/personal/bashrc ] && . $HOME/personal/bashrc
 
