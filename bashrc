@@ -240,7 +240,7 @@ alias pwdprompt='export PS1="${base01}\W$cyan\\$ $reset"'
 alias noprompt='export PS1="$cyan\\$ $reset"'
 pwdprompt
 
-logo () {
+clogo () {
 echo -e "$blue#!/play/learn/program                                                          "  
 echo -e "           $red        __   .__.__            __          __                       "
 echo -e "           $red  _____|  | _|__|  |   _______/  |______  |  | __                   "
@@ -253,11 +253,24 @@ echo -e "${base3}/______/            "
 echo -e "                                        ${cyan}Coding Arts                            "
 }
 
+llogo () {
+echo -e "$blue#!/play/learn/program                                      "  
+echo -e " $red        __   .__.__            __          __             "
+echo -e " $red  _____|  | _|__|  |   _______/  |______  |  | __         "
+echo -e " $red /  ___/  |/ /  |  |  /  ___/\   __\__  \ |  |/ /         "
+echo -e " $red \___ \|    <|  |  |__\___ \  |  |  / __ \|    <          "
+echo -ne " $red/____  >__|_ \__|____/____  > |__| (____  /__|_ \\"
+echo -e "${base3}_______  "
+echo -ne " $red     \/     \/            \/            \/     \\"
+echo -e "${base3}/______/  "
+echo -e "                              ${cyan}Coding Arts                  "
+}
+
 smlogo () {
   echo -e "${red}skilstak${base3}_$reset"
 }
 
-alias clear='clear; logo'
+alias clear='clear; llogo'
 clear
 
 #---------------------------------- Node ----------------------------------
