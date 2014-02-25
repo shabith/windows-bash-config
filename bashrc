@@ -276,7 +276,7 @@ clear
 #---------------------------------- Node ----------------------------------
 
 # node version manager
-[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
+[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
 
 #---------------------------- Jekyll Blogging -----------------------------
 
