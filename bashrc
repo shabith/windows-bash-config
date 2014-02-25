@@ -222,15 +222,15 @@ colors () {
 # from Nico Golde
 ansicolors () {
 for attr in 0 1 4 5 7 ; do
-    echo "----------------------------------------------------------------"
+    echo "------------------------------------------------"
     printf "ESC[%s;Foreground;Background - \n" $attr
     for fore in 30 31 32 33 34 35 36 37; do
         for back in 40 41 42 43 44 45 46 47; do
-            printf '\033[%s;%s;%sm %02s;%02s' $attr $fore $back $fore $back
+            printf '\033[%s;%s;%sm %02s;%02s\033[0m' \
+              $attr $fore $back $fore $back
         done
     printf '\n'
     done
-    printf $reset
 done
 }
 
@@ -238,7 +238,7 @@ alias bigprompt='export PS1="\n$red╔ $green\T \d ${orange}\u@\h$base01:$blue\w
 alias medprompt='export PS1="${base0}\u$base01@$base00\h:\W$cyan\\$ $reset"'
 alias pwdprompt='export PS1="${base01}\W$cyan\\$ $reset"'
 alias noprompt='export PS1="$cyan\\$ $reset"'
-#pwdprompt
+pwdprompt
 
 clogo () {
 echo -e "$blue#!/play/learn/program                                                          "  
