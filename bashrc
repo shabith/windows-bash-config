@@ -6,7 +6,7 @@
 BASHRC_LOADED=true
 export BASHRC_LOADED
 
-alias bashrc='unset BASHRC_LOADED; $EDITOR $HOME/config/bashrc; . $HOME/config/bashrc'
+alias bashrc='unset BASHRC_LOADED; $EDITOR "$HOME/config/bashrc"; . "$HOME/config/bashrc"'
 
 ###########################################################################
 ################################### MAIN ##################################
@@ -37,11 +37,11 @@ set -o ignoreeof
 
 # common, gets added to later depending on platform
 export PATH=\
-$HOME/bin:\
-$HOME/repos/powergit/bin:\
-$HOME/repos/mdaddlinks:\
-$HOME/repos/filters:\
-$HOME/repos/note:\
+"$HOME/bin":\
+"$HOME/repos/powergit/bin":\
+"$HOME/repos/mdaddlinks":\
+"$HOME/repos/filters":\
+"$HOME/repos/note":\
 $PATH
 alias path='echo -e ${PATH//:/\\n}'
 
@@ -79,7 +79,7 @@ complete -F _ssh ssh
 pushsshkey () {
   local id=$1
   local host=$2
-  cat ~/.ssh/${id}_rsa.pub | ssh $host '( [ ! -d $HOME/.ssh ] && mkdir $HOME/.ssh; cat >> $HOME/.ssh/authorized_keys2 )'
+  cat ~/.ssh/${id}_rsa.pub | ssh $host '( [ ! -d "$HOME/.ssh" ] && mkdir "$HOME/.ssh"; cat >> "$HOME/.ssh/authorized_keys2" )'
 }
 
 # changes the default ssh IdentityFile, expects no leading whitespace
@@ -168,10 +168,10 @@ resuf () {
 
 #-------------------------------- PowerGit --------------------------------
 
-export GITURLS=$HOME/config/giturls:\
-$HOME/custom/giturls:\
-$HOME/personal/giturls:\
-$HOME/private/giturls
+export GITURLS="$HOME/config/giturls":\
+"$HOME/custom/giturls":\
+"$HOME/personal/giturls":\
+"$HOME/private/giturls"
 alias gurlpath='echo -e ${GITURLS//:/\\n}'
 
 gcd () {
@@ -350,14 +350,14 @@ PATH=$XPF/Vim/Vim74:\
 $XPF/Git/bin:\
 /c/Python27:\
 $PF/Java/jdk1.7.0_51/bin:\
-$HOME/GameMaker-Studio\ 1.2:\
+"$HOME/GameMaker-Studio\ 1.2":\
 $PATH:\
 /c/Windows:\
 /c/Windows/System32
 export PATH
 
 alias gamemaker=Gamemaker-Studio.exe
-alias single='unset BASHRC_LOADED && cd $HOME && start "" "c:\program files (x86)\git\bin\sh.exe" --login -i && cd -'
+alias single='unset BASHRC_LOADED && cd "$HOME" && start "" "c:\program files (x86)\git\bin\sh.exe" --login -i && cd -'
 alias ip="ipconfig | perl -ne '/^\s*IPv4/ and print'"
 alias psplugins='cd "/c/Program Files (x86)/Adobe/Adobe Photoshop CC/Plug-ins"'
 
@@ -439,9 +439,9 @@ bash_setup () {
   preserve "$HOME/.bashrc"
   preserve "$HOME/.bash_profile"
   preserve "$HOME/.profile"
-  echo '. $HOME/config/bashrc' > "$HOME/.bashrc"
-  echo '. $HOME/config/bashrc' > "$HOME/.bash_profile"
-  echo '. $HOME/config/bashrc' > "$HOME/.profile"
+  echo '. "$HOME/config/bashrc"' > "$HOME/.bashrc"
+  echo '. "$HOME/config/bashrc"' > "$HOME/.bash_profile"
+  echo '. "$HOME/config/bashrc"' > "$HOME/.profile"
   [ ! -d "$HOME/repos" ] && mkdir "$HOME/repos"
   case "$PLATFORM" in
     windows) windows_bash_setup ;;
@@ -461,7 +461,7 @@ git_setup () {
 }
 
 # and for stuff we don't want in a public bashrc
-[ -s $HOME/custom/bashrc ] && . $HOME/custom/bashrc
-[ -s $HOME/personal/bashrc ] && . $HOME/personal/bashrc
-[ -s $HOME/private/bashrc ] && . $HOME/private/bashrc
+[ -s "$HOME/custom/bashrc" ] && . "$HOME/custom/bashrc"
+[ -s "$HOME/personal/bashrc" ] && . "$HOME/personal/bashrc"
+[ -s "$HOME/private/bashrc" ] && . "$HOME/private/bashrc"
 
