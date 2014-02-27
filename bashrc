@@ -443,6 +443,8 @@ bash_setup () {
   echo '. "$HOME/config/bashrc"' > "$HOME/.bash_profile"
   echo '. "$HOME/config/bashrc"' > "$HOME/.profile"
   [ ! -d "$HOME/repos" ] && mkdir "$HOME/repos"
+  [ ! -d "$HOME/personal" ] && mkdir "$HOME/personal"
+  mkdir "$HOME/personal/notes"
   case "$PLATFORM" in
     windows) windows_bash_setup ;;
     linux)   linux_bash_setup ;;
