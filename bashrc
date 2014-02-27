@@ -38,11 +38,10 @@ set -o ignoreeof
 # common, gets added to later depending on platform
 export PATH=\
 $HOME/bin:\
-$HOME/powergit/bin:\
-$HOME/mdaddlinks:\
-$HOME/filters:\
-$HOME/fmt:\
-$HOME/note:\
+$HOME/repos/powergit/bin:\
+$HOME/repos/mdaddlinks:\
+$HOME/repos/filters:\
+$HOME/repos/note:\
 $PATH
 alias path='echo -e ${PATH//:/\\n}'
 
@@ -443,7 +442,7 @@ bash_setup () {
   echo '. $HOME/config/bashrc' > "$HOME/.bashrc"
   echo '. $HOME/config/bashrc' > "$HOME/.bash_profile"
   echo '. $HOME/config/bashrc' > "$HOME/.profile"
-  [ ! -d "$HOME/tmp" ] && mkdir "$HOME/tmp"
+  [ ! -d "$HOME/repos" ] && mkdir "$HOME/repos"
   case "$PLATFORM" in
     windows) windows_bash_setup ;;
     linux)   linux_bash_setup ;;
@@ -454,7 +453,7 @@ bash_setup () {
 git_setup () {
   git config --global push.default simple
   git clone https://github.com/skilstak/powergit.git \
-    "$HOME/powergit" 2>/dev/null
+    "$HOME/repos/powergit" 2>/dev/null
   if [ $? == 0 -o -d "$HOME/powergit" ]
   then
     gclone
