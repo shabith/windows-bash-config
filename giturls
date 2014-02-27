@@ -1,6 +1,6 @@
-https://github.com/skilstak/config.git ~/config
-https://github.com/skilstak/powergit.git 
-https://github.com/skilstak/vimfiles.git ~/vimfiles
-https://github.com/skilstak/filters.git 
-https://github.com/skilstak/mdaddlinks.git 
-https://github.com/skilstak/note.git 
+git@github.com:skilstak/config.git ~/config
+git@github.com:skilstak/powergit.git 
+git@github.com:skilstak/vimfiles.git ~/vimfiles
+git@github.com:skilstak/filters.git 
+git@github.com:skilstak/mdaddlinks.git 
+git@github.com:skilstak/note.git 
