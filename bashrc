@@ -368,7 +368,8 @@ export TERM=xterm-color
 windows_bash_setup () {
 
   # solarize all windows cmd consoles including git-bash
-  echo regedit /s solarized-dark.reg | cmd
+  #echo regedit /s solarized-dark.reg | cmd
+  echo regedit /s solarized-consolas-30pt.reg | cmd
 
   # solarize the chrome (and canary) source view
   cp Custom.css "$HOME/AppData/Local/Google/Chrome/User Data/Default/User StyleSheets"
