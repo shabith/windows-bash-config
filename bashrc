@@ -178,6 +178,10 @@ gcd () {
   cd `gls $1 | perl -e '@m=split(/\s+/,<STDIN>);print$m[1]'`
 }
 
+repo () {
+  cd "$HOME/repos/$*"
+}
+
 #---------------------------- Solarized Prompt ----------------------------
 
 # solarized ansicolors (exporting for grins)
