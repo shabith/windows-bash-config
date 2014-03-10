@@ -174,13 +174,21 @@ export GITURLS="$HOME/config/giturls":\
 "$HOME/private/giturls"
 alias gurlpath='echo -e ${GITURLS//:/\\n}'
 
-gcd () {
-  cd `gls $1 | perl -e '@m=split(/\s+/,<STDIN>);print$m[1]'`
-}
-
 repo () {
-  cd "$HOME/repos/$*"
+  if [ -z "$1" ]; then 
+    gls name
+  else
+    cd `gls $1 | perl -e '@m=split(/\s+/,<STDIN>);print$m[1]'`
+  fi
 }
+alias gcd=repo
+
+_repo () {
+  local list=`gls name`
+  local typed=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "$list" -- $typed))
+}
+complete -F _repo repo
 
 #---------------------------- Solarized Prompt ----------------------------
 
