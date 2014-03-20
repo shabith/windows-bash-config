@@ -44,7 +44,6 @@ Windows Registry Editor Version 5.00
 "ColorTable13"=dword:008236d3
 "ColorTable14"=dword:000089b5
 "ColorTable15"=dword:00e3f6fd
-"ScreenColors"=dword:00000001
 "PopupColors"=dword:000000f6
 "QuickEdit"=dword:00000001
 "WindowSize"=dword:00280050
