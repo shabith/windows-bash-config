@@ -35,14 +35,28 @@ set -o ignoreeof
 
 #---------------------------------- Path ----------------------------------
 
-# common, gets added to later depending on platform
+repopaths () {
+  local repopath=`find $HOME/repos -maxdepth 1 -type d -print0 | tr '\0' ':'i`
+  local repobinpath=`find $HOME/repos -maxdepth 2 -type d -name 'bin' -print0 | tr '\0' ':'`
+  echo "$repopath$repobinpath"
+}
+
+repath () {
+
 export PATH=\
+"./":\
+"./bin":\
 "$HOME/bin":\
-"$HOME/repos/powergit/bin":\
-"$HOME/repos/mdaddlinks":\
-"$HOME/repos/filters":\
-"$HOME/repos/note":\
-$PATH
+`repopaths`\
+"/usr/local/bin:"\
+"/usr/bin:"\
+"/bin":\
+"/usr/local/sbin":\
+"/usr/sbin":\
+"/sbin"
+}
+repath
+
 alias path='echo -e ${PATH//:/\\n}'
 
 #---------------------------------- Note ----------------------------------
@@ -169,9 +183,8 @@ resuf () {
 #-------------------------------- PowerGit --------------------------------
 
 export GITURLS="$HOME/config/giturls":\
-"$HOME/custom/giturls":\
-"$HOME/personal/giturls":\
-"$HOME/private/giturls"
+"$HOME/repos/personal/giturls":\
+"$HOME/repos/private/giturls"
 alias gurlpath='echo -e ${GITURLS//:/\\n}'
 
 repo () {
@@ -271,15 +284,10 @@ smlogo () {
 alias clear='clear; clogo'
 clear
 
-#---------------------------------- Node ----------------------------------
-
-# node version manager
-[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
-
 #---------------------------- Jekyll Blogging -----------------------------
 
-export SITE="$HOME/com"
-export SITEME="$HOME/me"
+export SITE="$HOME/repos/com"
+export SITEME="$HOME/repos/me"
 
 postname () {
   echo `date +%Y-%m-%d`-`join - "$@"`.markdown
@@ -312,10 +320,6 @@ pub () {
     echo "Don't see a draft matching '*$key*'"
   fi
 }
-
-alias com='cd ~/com'
-alias me='cd ~/me'
-alias show='jekyll serve'
 
 alias comblog='writepost $SITE/_posts'
 alias meblog='writepost $SITEME/_posts'
@@ -440,11 +444,7 @@ bash_setup () {
   preserve "$HOME/.bash_profile"
   preserve "$HOME/.profile"
   echo '. "$HOME/config/bashrc"' > "$HOME/.bashrc"
-  echo '. "$HOME/config/bashrc"' > "$HOME/.bash_profile"
-  echo '. "$HOME/config/bashrc"' > "$HOME/.profile"
   [ ! -d "$HOME/repos" ] && mkdir "$HOME/repos"
-  [ ! -d "$HOME/personal" ] && mkdir "$HOME/personal"
-  mkdir "$HOME/personal/notes"
   case "$PLATFORM" in
     windows) windows_bash_setup ;;
     linux)   linux_bash_setup ;;
@@ -462,8 +462,10 @@ git_setup () {
   fi
 }
 
-# and for stuff we don't want in a public bashrc
-[ -s "$HOME/custom/bashrc" ] && . "$HOME/custom/bashrc"
-[ -s "$HOME/personal/bashrc" ] && . "$HOME/personal/bashrc"
-[ -s "$HOME/private/bashrc" ] && . "$HOME/private/bashrc"
+#---------------------------- personalization -----------------------------
 
+# mostly for those that do now want to maintain their own bashrc but
+# still want a repo-centric bash config
+
+[ -e "$HOME/repos/personal/bashrc" ] && . "$HOME/repos/personal/bashrc" 
+[ -e "$HOME/repos/private/bashrc" ] && . "$HOME/repos/private/bashrc" 
