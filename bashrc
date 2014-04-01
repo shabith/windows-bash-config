@@ -262,7 +262,7 @@ alias bigprompt='export PS1="\n$red╔ $green\T \d ${orange}\u@\h$base01:$blue\w
 alias medprompt='export PS1="${base0}\u$base01@$base00\h:\W$cyan\\$ $reset"'
 alias pwdprompt='export PS1="${base01}\W$cyan\\$ $reset"'
 alias noprompt='export PS1="$cyan\\$ $reset"'
-pwdprompt
+medprompt
 
 clogo () {
 echo -e "$blue#!/play/learn/program                                                          "  
