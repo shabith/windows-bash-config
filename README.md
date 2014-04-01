@@ -35,6 +35,8 @@ What does it do?
 * Adds `ssh` tab-completion based on `.ssh/config` and utils 
 * Adds aliases, filters, functions for jekyll blogging (`com`, `me`)
 * Adds a `note` command with tab completion
+* Uses a `bigprompt` to help beginners feel safer
+* Has `medprompt`, `pwdprompt`, and `noprompt` options as well
 * Fixes many windows-centricities with `git-bash`
 
 I realize this isn't for everyone. It's rather opinionated and originally
