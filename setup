@@ -5,6 +5,5 @@
 . bashrc
 bash_setup
 git_setup
-echo run regedit /s solarized-dark.reg to solarize
 
 #echo "bash should now be setup, restart a terminal to confirm"
