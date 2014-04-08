@@ -392,7 +392,7 @@ export PS1="${base0}\u$base01@$base00\h:\W$cyan\\$ $reset"
 windows_bash_setup () {
 
   # solarize all windows cmd consoles including git-bash
-   echo run regedit /s solarized-dark.reg 
+  echo run regedit /s solarized-dark.reg 
 
   # solarize the chrome (and canary) source view
   # cp Custom.css "$HOME/AppData/Local/Google/Chrome/User Data/Default/User StyleSheets"
