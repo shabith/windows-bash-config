@@ -258,11 +258,6 @@ for attr in 0 1 4 5 7 ; do
 done
 }
 
-alias bigprompt='export PS1="\n\[$red\]╔ \[$green\]\T \d \[${orange}\]\u@\h\[$base01\]:\[$blue\]\w$gitps1\n\[$red\]╚ \[$cyan\]\\$ \[$reset\]"'
-alias medprompt='export PS1="\[${base0}\]\u\[$base01\]@\[$base00\]\h:\W\[$cyan\]\\$ \[$reset\]"'
-alias pwdprompt='export PS1="\[${base01}\]\W\[$cyan\]\\$ \[$reset\]"'
-alias noprompt='export PS1="\[$cyan\]\\$ \[$reset\]"'
-medprompt
 
 clogo () {
 echo -e "$blue#!/play/learn/program                                                          "  
@@ -280,6 +275,14 @@ echo -e "                                       ${cyan}Coding Arts              
 smlogo () {
   echo -e "${red}skilstak${base3}_$reset"
 }
+
+if [ "$PLATFORM" != windows ]; then
+alias bigprompt='export PS1="\n\[$red\]╔ \[$green\]\T \d \[${orange}\]\u@\h\[$base01\]:\[$blue\]\w$gitps1\n\[$red\]╚ \[$cyan\]\\$ \[$reset\]"'
+alias medprompt='export PS1="\[${base0}\]\u\[$base01\]@\[$base00\]\h:\W\[$cyan\]\\$ \[$reset\]"'
+alias pwdprompt='export PS1="\[${base01}\]\W\[$cyan\]\\$ \[$reset\]"'
+alias noprompt='export PS1="\[$cyan\]\\$ \[$reset\]"'
+medprompt
+fi
 
 alias clear='clear; clogo'
 clear
@@ -339,6 +342,15 @@ alias mepub='pub $SITEME'
 ################################# Windows #################################
 ###########################################################################
 
+# I really hate that we have to do all this, but windows default term is
+# horrible even if it is what most have available to them.
+#
+# I strongly recommend setting up a vm in a local cloud even on your 
+# workstation or laptop and ssh-ing into it for any serious development,
+# yes, even for mac users. Using a local linux or smartos vm promotes
+# habits and workflows identical to those used professionally by coders
+# and system administrators alike.
+
 if [ "$PLATFORM" == windows ]; then
 
 # god i hate these paths
@@ -366,6 +378,15 @@ alias psplugins='cd "/c/Program Files (x86)/Adobe/Adobe Photoshop CC/Plug-ins"'
 
 # have to force it, normally 'msys'
 export TERM=xterm-color
+
+# windows fails to position cursor correctly with \['s are used
+alias bigprompt='export PS1="\n$red╔ $green\T \d ${orange}\u@\h$base01:$blue\w$gitps1\n$red╚ $cyan\\$ $reset"'
+alias medprompt='export PS1="${base0}\u$base01@$base00\h:\W$cyan\\$ $reset"'
+alias pwdprompt='export PS1="${base01}\W$cyan\\$ $reset"'
+alias noprompt='export PS1="$cyan\\$ $reset"'
+# alias often not available in time to call here, so we rep the one we want
+# (windows really sucks, completely incompetent operating system, 'cept for games)
+export PS1="${base0}\u$base01@$base00\h:\W$cyan\\$ $reset"
 
 # called from bash_setup
 windows_bash_setup () {
@@ -405,6 +426,7 @@ bsd_bash_setup () {
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 alias ls='ls -G'
+
 
 fi
 
