@@ -374,8 +374,8 @@ windows_bash_setup () {
   echo regedit /s solarized-dark.reg | cmd
 
   # solarize the chrome (and canary) source view
-  cp Custom.css "$HOME/AppData/Local/Google/Chrome/User Data/Default/User StyleSheets"
-  cp Custom.css "$HOME/AppData/Local/Google/Chrome SxS/User Data/Default/User StyleSheets"
+  #cp Custom.css "$HOME/AppData/Local/Google/Chrome/User Data/Default/User StyleSheets"
+  #cp Custom.css "$HOME/AppData/Local/Google/Chrome SxS/User Data/Default/User StyleSheets"
 }
 
 ###########################################################################
@@ -455,7 +455,7 @@ git_setup () {
   git config --global push.default simple
   git clone https://github.com/skilstak/powergit.git \
     "$HOME/repos/powergit" 2>/dev/null
-  if [ $? == 0 -o -d "$HOME/powergit" ]
+  if [ $? == 0 -o -d "$HOME/repos/powergit" ]
   then
     gclone
   fi
