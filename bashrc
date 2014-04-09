@@ -465,6 +465,7 @@ bash_setup () {
   preserve "$HOME/.bash_profile"
   preserve "$HOME/.profile"
   echo '. "$HOME/config/bashrc"' > "$HOME/.bashrc"
+  echo '. "$HOME/config/bashrc"' > "$HOME/.bash_profile"
   [ ! -d "$HOME/repos" ] && mkdir "$HOME/repos"
   case "$PLATFORM" in
     windows) windows_bash_setup ;;
