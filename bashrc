@@ -32,6 +32,7 @@ HISFILESIZE=2000
 set -o notify
 set -o noclobber
 set -o ignoreeof
+set bell-style none
 
 #---------------------------------- Path ----------------------------------
 
