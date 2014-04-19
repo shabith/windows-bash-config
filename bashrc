@@ -282,11 +282,10 @@ alias bigprompt='export PS1="\n\[$red\]╔ \[$green\]\T \d \[${orange}\]\u@\h\[$
 alias medprompt='export PS1="\[${base0}\]\u\[$base01\]@\[$base00\]\h:\W\[$cyan\]\\$ \[$reset\]"'
 alias pwdprompt='export PS1="\[${base01}\]\W\[$cyan\]\\$ \[$reset\]"'
 alias noprompt='export PS1="\[$cyan\]\\$ \[$reset\]"'
-medprompt
 fi
 
-alias clear='clear; clogo'
-clear
+# default
+export PS1="\[${base0}\]\u\[$base01\]@\[$base00\]\h:\W\[$cyan\]\\$ \[$reset\]"
 
 #---------------------------- Jekyll Blogging -----------------------------
 
@@ -481,6 +480,7 @@ git_setup () {
     "$HOME/repos/powergit" 2>/dev/null
   if [ $? == 0 -o -d "$HOME/repos/powergit" ]
   then
+    repath
     gclone
   fi
 }
