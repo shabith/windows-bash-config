@@ -192,7 +192,7 @@ repo () {
   if [ -z "$1" ]; then 
     gls name
   else
-    cd `gls $1 | perl -e '@m=split(/\s+/,<STDIN>);print$m[1]'`
+    cd "$HOME/repos/$1"
   fi
 }
 alias gcd=repo
