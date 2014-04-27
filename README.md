@@ -11,10 +11,10 @@ commander.
 
 @SkilStak we assume *everything* we use comes from one of four places:
 
-1. The operating system
-2. A package manager
-3. A git repo
-4. DropBox (or a cloud storage service like it)
+1. The operating system (think ISOs and VMs)
+2. A package manager (think `apt-get` and `dpkg`)
+3. A git repo (think, well, `git`)
+4. A cloud storage service (think Dropbox or Google Drive)
 
 Anything worth keeping is in one of those places (or should be) and
 anything not in one of these four places should be considered
