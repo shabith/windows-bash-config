@@ -18,7 +18,7 @@ commander.
 
 Anything worth keeping is in one of those places (or should be) and
 anything not in one of these four places should be considered
-\'expendable\'.
+expendable.
 
 This means you lose next to nothing when your machine dies or you forgot
 it and have to use another one, (which is frequently required to maintain
