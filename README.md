@@ -9,7 +9,7 @@ learners you already know what this is. If not, welcome, maybe you'll find
 this helpful to get you started on your way to becoming a bash shell
 commander.
 
-@SkilStak we assume *everything* we use comes from one of three places:
+@SkilStak we assume *everything* we use comes from one of four places:
 
 1. The operating system
 2. A package manager
@@ -52,7 +52,8 @@ Another option for beginners (and educators) is to just download the
 SkilStak Server on a Stick Ubuntu Linux Server image from our public
 dropbox, which is linked from [skilstak.com][]. It just needs the free
 version of VMWare Player to use and allows a highly-recommended native
-Linux server experience. We've put the latest Node.js on it as well.
+Linux server experience. We've put the latest developer Node.js on it as
+well.
 
 Server-on-a-stick (or desktop) is increasingly becoming part of the
 standard toolset and workflow for developers of all kinds. Coupled
