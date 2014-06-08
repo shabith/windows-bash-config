@@ -44,12 +44,4 @@ Windows Registry Editor Version 5.00
 "ColorTable13"=dword:008236d3
 "ColorTable14"=dword:000089b5
 "ColorTable15"=dword:00e3f6fd
-"PopupColors"=dword:000000f6
-"QuickEdit"=dword:00000001
-"WindowSize"=dword:00280050
-"FontSize"=dword:00140000
-"FaceName"="Consolas"
-"FontFamily"=dword:00000036
-"FontWeight"=dword:000002bc
-"CursorSize"=dword:00000019
 
