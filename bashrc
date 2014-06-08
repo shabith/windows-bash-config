@@ -363,8 +363,9 @@ alias xpf='cd "$XPF"'
 # but yeah, i'll be updating this one a lot
 PATH=$XPF/Vim/Vim74:\
 $XPF/Git/bin:\
-/c/Python27:\
+/c/Python34:\
 $PF/Java/jdk1.7.0_51/bin:\
+$PF/nodejs:\
 "$HOME/GameMaker-Studio\ 1.2":\
 $PATH:\
 /c/Windows:\
