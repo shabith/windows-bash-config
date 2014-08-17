@@ -333,7 +333,7 @@ alias medraft='writepost $SITEME/_drafts'
 alias composts='$EDITOR $SITE/_posts'
 alias meposts='$EDITOR $SITEME/_posts'
 alias medrafts='$EDITOR $SITEME/_drafts'
-alias composts='$EDITOR $SITE/_drafts'
+alias comdrafts='$EDITOR $SITE/_drafts'
 
 alias compub='pub $SITE'
 alias mepub='pub $SITEME'
