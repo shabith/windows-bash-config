@@ -9,12 +9,13 @@ learners you already know what this is. If not, welcome, maybe you'll find
 this helpful to get you started on your way to becoming a bash shell
 commander.
 
-@SkilStak we assume *everything* we use comes from one of four places:
+At SkilStak we assume *everything* we use comes from one of five places:
 
 1. The operating system (think ISOs and VMs)
 2. A package manager (think `apt-get` and `dpkg`)
 3. A git repo (think, well, `git`)
 4. A cloud storage service (think Dropbox or Google Drive)
+5. A personal USB drive that has been backed up to a computer.
 
 Anything worth keeping is in one of those places (or should be) and
 anything not in one of these four places should be considered
@@ -50,7 +51,7 @@ SkilStak Ubuntu Server VMWare Image
 
 Another option for beginners (and educators) is to just download the
 SkilStak Server on a Stick Ubuntu Linux Server image from our public
-dropbox, which is linked from [skilstak.com][]. It just needs the free
+dropbox, which is linked from [skilstak.io][]. It just needs the free
 version of VMWare Player to use and allows a highly-recommended native
 Linux server experience. We've put the latest developer Node.js on it as
 well.
@@ -96,4 +97,4 @@ Or you can just fork https://github.com/skilstak/config and maintain
 your own pulls once you understand all that entails.
 
 [powergit]: http://github.com/skilstak/powergit
-[skilstak.com]: http://skilstak.com
+[skilstak.io]: http://skilstak.io
