@@ -1,10 +1,15 @@
-# bail if somehow non-interactive
-[ -z "$PS1" ] && return 2>/dev/null
 
-## bail if already loaded (prefer a single file)
-[ ! -z "$BASHRC_LOADED" ] && return
-BASHRC_LOADED=true
-export BASHRC_LOADED
+if [ ! $TERM = 'screen' ]; then
+
+  # bail if somehow non-interactive
+  [ -z "$PS1" ] && return 2>/dev/null
+
+  ## bail if already loaded (prefer a single file)
+  [ ! -z "$BASHRC_LOADED" ] && return
+  BASHRC_LOADED=true
+  export BASHRC_LOADED
+
+fi
 
 alias bashrc='unset BASHRC_LOADED; $EDITOR "$HOME/config/bashrc"; . "$HOME/config/bashrc"'
 
@@ -408,6 +413,7 @@ elif [ "$PLATFORM" == linux ]; then
 
 alias listens='netstat -tulpn'
 alias ip="ifconfig | perl -ne '/^\s*inet addr/ and print'"
+export TERM=xterm
 
 linux_bash_setup () {
   echo "Nothing special needed. What a surprise."
