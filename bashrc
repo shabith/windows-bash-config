@@ -504,6 +504,12 @@ vim_setup () {
   cd -
 }
 
+get_minecraft () {
+  mkdir ~/minecraft
+  curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar > ~/minecraft/Minecraft.jar
+  curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > ~/minecraft/minecraft_server.1.8.jar
+}
+
 #---------------------------- personalization -----------------------------
 
 # mostly for those that do now want to maintain their own bashrc but
