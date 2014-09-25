@@ -1,2 +1,2 @@
-git@github.com:skilstak/config.git ~/config
-git@github.com:skilstak/vimfiles.git ~/vimfiles
+http://github.com/skilstak/config.git ~/config
+http://github.com/skilstak/vimfiles.git ~/vimfiles

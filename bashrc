@@ -123,6 +123,12 @@ preserve () {
     [ -e "$1" ] && mv "$1" "$1"_`date +%Y%m%d%H%M%S`
 }
 
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/config/dircolors \
+    && eval "$(dircolors -b ~/config/dircolors)" \
+    || eval "$(dircolors -b)"
+fi
+
 alias tstamp='date +%Y%m%d%H%M%S'
 alias ls='ls -h --color'
 alias more=less
@@ -490,6 +496,12 @@ git_setup () {
     repath
     gclone
   fi
+}
+
+vim_setup () {
+  cd ~/vimfiles
+  ./setup
+  cd -
 }
 
 #---------------------------- personalization -----------------------------

@@ -5,5 +5,6 @@
 . bashrc
 bash_setup
 git_setup
+vim_setup
 
 #echo "bash should now be setup, restart a terminal to confirm"
