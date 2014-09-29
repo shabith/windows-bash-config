@@ -124,8 +124,8 @@ preserve () {
 }
 
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/config/dircolors \
-    && eval "$(dircolors -b ~/config/dircolors)" \
+  test -r ~/config/solarized/dircolors \
+    && eval "$(dircolors -b ~/config/solarized/dircolors)" \
     || eval "$(dircolors -b)"
 fi
 
@@ -220,7 +220,7 @@ complete -F _repo repo
 # solarized ansicolors (exporting for grins)
 export base03='\033[1;30;40m'
 export base02='\033[0;30;40m'
-export base01='\033[0;32;40m'
+export base01='\033[1;32;40m'
 export base00='\033[0;33;40m'
 export base0='\033[0;34;40m'
 export base1='\033[0;36;40m'
@@ -235,24 +235,25 @@ export export blue='\033[1;34;40m'
 export cyan='\033[1;36;40m'
 export green='\033[1;32;40m'
 export reset='\033[0m'
+export green='\033[0;32;40m'
 
 colors () {
-  echo -e "base03  ${base03}Test$reset"
-  echo -e "base02  ${base02}Test$reset"
-  echo -e "base01  ${base01}Test$reset"
-  echo -e "base00  ${base00}Test$reset"
-  echo -e "base0   ${base0}Test$reset"
-  echo -e "base1   ${base1}Test$reset"
-  echo -e "base2   ${base2}Test$reset"
-  echo -e "base3   ${base3}Test$reset"
-  echo -e "yellow  ${yellow}Test$reset"
-  echo -e "orange  ${orange}Test$reset"
-  echo -e "red     ${red}Test$reset"
-  echo -e "magenta ${magenta}Test$reset"
-  echo -e "violet  ${violet}Test$reset"
-  echo -e "blue    ${blue}Test$reset"
-  echo -e "cyan    ${cyan}Test$reset"
-  echo -e "green   ${green}Test$reset"
+  echo -e "base03  ${base03}#002B36$reset"
+  echo -e "base02  ${base02}#073642$reset"
+  echo -e "base01  ${base01}#586E75$reset"
+  echo -e "base00  ${base00}#657B83$reset"
+  echo -e "base0   ${base0}#839496$reset"
+  echo -e "base1   ${base1}#93A1A1$reset"
+  echo -e "base2   ${base2}#EEE8D5$reset"
+  echo -e "base3   ${base3}#FDF6E3$reset"
+  echo -e "yellow  ${yellow}#B58900$reset"
+  echo -e "orange  ${orange}#CB4B16$reset"
+  echo -e "red     ${red}#DC322F$reset"
+  echo -e "magenta ${magenta}#D33682$reset"
+  echo -e "violet  ${violet}#6C71C4$reset"
+  echo -e "blue    ${blue}#268BD2$reset"
+  echo -e "cyan    ${cyan}#2AA198$reset"
+  echo -e "green   ${green}#859900$reset"
 }
 
 # from Nico Golde
@@ -404,7 +405,7 @@ export PS1="${base0}\u$base01@$base00\h:\W$cyan\\$ $reset"
 windows_bash_setup () {
 
   # solarize all windows cmd consoles including git-bash
-  echo Run 'regedit /s solarized-dark.reg' if you want solarized colors
+  echo Run 'regedit /s solarized/solarized-dark.reg' if you want solarized colors
 
   # solarize the chrome (and canary) source view
   # cp Custom.css "$HOME/AppData/Local/Google/Chrome/User Data/Default/User StyleSheets"
