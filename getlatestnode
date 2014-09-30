@@ -1,0 +1,11 @@
+#!/bin/bash
+
+VERSION=v0.11.11
+
+mkdir -p ~/local
+[ -d ~/install/node-latest ] && rm -rf ~/install/node-latest
+mkdir -p ~/install/node-latest
+cd "$HOME/install/node-latest"
+curl http://nodejs.org/dist/$VERSION/node-$VERSION.tar.gz | tar xz --strip-components=1
+./configure --prefix=$HOME/local
+make install
