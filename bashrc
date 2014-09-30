@@ -51,7 +51,7 @@ repath () {
 
 export PATH=\
 "./":\
-"./local/bin":\
+"$HOME/local/bin":\
 "$HOME/bin":\
 `repopaths`\
 "/usr/local/bin:"\
