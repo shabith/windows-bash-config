@@ -506,9 +506,9 @@ vim_setup () {
 }
 
 get_minecraft () {
-  mkdir ~/minecraft
-  curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar > ~/minecraft/Minecraft.jar
-  curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > ~/minecraft/minecraft_server.1.8.jar
+  mkdir -p ~/local/minecraft
+  curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar > ~/local/minecraft/Minecraft.jar
+  curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > ~/local/minecraft/minecraft_server.1.8.jar
 }
 
 #---------------------------- personalization -----------------------------
