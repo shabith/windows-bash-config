@@ -1,0 +1,5 @@
+ #!/bin/sh 
+  
+ mkdir -p ~/local/minecraft
+ curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar > ~/local/minecraft/Minecraft.jar
+ curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > ~/local/minecraft/minecraft_server.1.8.jar

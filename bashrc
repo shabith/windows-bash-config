@@ -52,6 +52,7 @@ repath () {
 export PATH=\
 "./":\
 "$HOME/local/bin":\
+"$HOME/config/bin":\
 "$HOME/bin":\
 `repopaths`\
 "/usr/local/bin:"\
@@ -218,6 +219,7 @@ complete -F _repo repo
 #---------------------------- Solarized Prompt ----------------------------
 
 # solarized ansicolors (exporting for grins)
+# these are fucked, have to fix them on a real terminal (not windows)
 export base03='\033[1;30;40m'
 export base02='\033[0;30;40m'
 export base01='\033[1;32;40m'
@@ -255,22 +257,6 @@ colors () {
   echo -e "cyan    ${cyan}#2AA198$reset"
   echo -e "green   ${green}#859900$reset"
 }
-
-# from Nico Golde
-ansicolors () {
-for attr in 0 1 4 5 7 ; do
-    echo "------------------------------------------------"
-    printf "ESC[%s;Foreground;Background - \n" $attr
-    for fore in 30 31 32 33 34 35 36 37; do
-        for back in 40 41 42 43 44 45 46 47; do
-            printf '\033[%s;%s;%sm %02s;%02s\033[0m' \
-              $attr $fore $back $fore $back
-        done
-    printf '\n'
-    done
-done
-}
-
 
 clogo () {
 echo -e "$blue#!/play/learn/program                                                          "  
@@ -354,14 +340,12 @@ alias mepub='pub $SITEME'
 ################################# Windows #################################
 ###########################################################################
 
+# This is really a bunch of shit. If you have the choice just use a
+# light-weight Linux VM and forget Windows exists.
+# http://robmuh.com/use-linux
+# 
 # I really hate that we have to do all this, but windows default term is
 # horrible even if it is what most have available to them.
-#
-# I strongly recommend setting up a vm in a local cloud even on your 
-# workstation or laptop and ssh-ing into it for any serious development,
-# yes, even for mac users. Using a local linux or smartos vm promotes
-# habits and workflows identical to those used professionally by coders
-# and system administrators alike.
 
 if [ "$PLATFORM" == windows ]; then
 
@@ -384,6 +368,7 @@ $PATH:\
 /c/Windows/System32
 export PATH
 
+# ... and yes GameMaker runs under VMware without problem, ditch this
 alias gamemaker=Gamemaker-Studio.exe
 alias single='unset BASHRC_LOADED && cd "$HOME" && start "" "c:\program files (x86)\git\bin\sh.exe" --login -i && cd -'
 alias ip="ipconfig | perl -ne '/^\s*IPv4/ and print'"
@@ -505,11 +490,6 @@ vim_setup () {
   cd -
 }
 
-get_minecraft () {
-  mkdir -p ~/local/minecraft
-  curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar > ~/local/minecraft/Minecraft.jar
-  curl --progress-bar https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > ~/local/minecraft/minecraft_server.1.8.jar
-}
 
 #---------------------------- personalization -----------------------------
 
