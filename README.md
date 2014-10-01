@@ -1,15 +1,18 @@
 SkilStak Bash Config
 ====================
 
-A repo-centric, bash config suitable for linux, bsd, windows
-(git-bash) (and eventually smartos/illuminos).
+A repo-centric bash config designed mainly for Ubuntu Linux and the
+SkilStak Desktop on a Stick ([skilstak.io][]) but others
+can maybe find use for it.
 
-If you are one of our SkilStak Coding Arts team of developers, mentors and
-learners you already know what this is. If not, welcome, maybe you'll find
-this helpful to get you started on your way to becoming a bash shell
-commander.
+While this works on Mac and Windows (if you must) try to use it from
+the Linux VM referenced or your own for best use.
 
-At SkilStak we assume *everything* we use comes from one of five places:
+Reasoning 
+=========
+
+At SkilStak Coding Arts we assume *everything* we use comes from one of
+five places:
 
 1. The operating system (think ISOs and VMs)
 2. A package manager (think `apt-get` and `dpkg`)
@@ -31,7 +34,7 @@ What does it do?
 * Builds paths from executables in `~/repos/*` and `~/repos/*/bin`
 * Adds a `repo` command with tab completion
 * Adds [powergit][] command line aliases and functions
-* Adds solarized color palette (to windows) and variables
+* Adds solarized color palette (yes even to windows) and variables
 * Adds `~/vimfiles` and vim-centric aliases
 * Adds `ssh` tab-completion based on `.ssh/config` and utils 
 * Adds aliases, filters, functions for jekyll blogging (`com`, `me`)
@@ -46,37 +49,30 @@ experience for beginners that just want to get up and running while they
 learn to become bash shell commanders later (with their own bashrcs
 and such).
 
-SkilStak Ubuntu Server VMWare Image
-===================================
+SkilStak Ubuntu Desktop/Server on a Stick
+=========================================
 
 Another option for beginners (and educators) is to just download the
-SkilStak Server on a Stick Ubuntu Linux Server image from our public
-dropbox, which is linked from [skilstak.io][]. It just needs the free
-version of VMWare Player to use and allows a highly-recommended native
-Linux server experience. We've put the latest developer Node.js on it as
-well.
+SkilStak Server or Desktop on a Stick Ubuntu Linux Server images from
+[skilstak.io][]. It just needs the free version of VMWare Player to use
+and allows a highly-recommended native Linux server experience. 
+We've put all the latest tools on it as well to reduce installation
+time if you are in class or working on class projects.
 
-Server-on-a-stick (or desktop) is increasingly becoming part of the
-standard toolset and workflow for developers of all kinds. Coupled
-with repo-centric configuration and provisioning this provides what
-many consider an ideal modern development environment:
+Using a VM: 
 
-* It eliminates quirks from different operating system shells
-* It allows easy backups of the entire dev env including automation
-* Environment (images) can be downloaded or uploaded from cloud hosting
+* Eliminates quirks from different operating system shells
+* Allows easy backups of the entire dev env including automation
+* Can be downloaded or uploaded from cloud hosting
 
 At a maximum of 2GB RAM, this is particularly useful for emulating
 a cloud-hosted development environment all web and mobile app
-developers need. Keep in mind only one vmware image per machine is
+developers need. Keep in mind only one VMware image per machine is
 possible with the free version of vmware player.
 
 This is particularly recommended for those stuck with Windows since no
 matter how much you optimize and pretty-up the Windows git-bash
 experience the command-line remains insanely slow, choppy, and buggy.
-@SkilStak we've decided to use the Linux images combined with this
-`conifg` pulled down onto Windows machines with `git-bash` installed
-and then `ssh` into the image on the same machine since that workflow
-exactly models a modern professional development environment.
 
 Getting Started
 ===============
