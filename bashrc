@@ -134,7 +134,6 @@ fi
 alias tstamp='date +%Y%m%d%H%M%S'
 alias ls='ls -h --color'
 alias more=less
-alias config=cd "$HOME/config"
 
 alias lx='ls -lXB'         #  Sort by extension.
 alias lk='ls -lSr'         #  Sort by size, biggest last.
