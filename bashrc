@@ -12,6 +12,7 @@ if [ ! $TERM = 'screen' ]; then
 fi
 
 alias bashrc='unset BASHRC_LOADED; $EDITOR "$HOME/config/bashrc"; . "$HOME/config/bashrc"'
+alias config='cd "$HOME/config"'
 
 ###########################################################################
 ################################### MAIN ##################################
@@ -133,6 +134,7 @@ fi
 alias tstamp='date +%Y%m%d%H%M%S'
 alias ls='ls -h --color'
 alias more=less
+alias config=cd "$HOME/config"
 
 alias lx='ls -lXB'         #  Sort by extension.
 alias lk='ls -lSr'         #  Sort by size, biggest last.
@@ -208,6 +210,7 @@ repo () {
   fi
 }
 alias gcd=repo
+alias repos='cd "$HOME/repos"'
 
 _repo () {
   local list=`gls name`
@@ -489,6 +492,8 @@ vim_setup () {
   ./setup
   cd -
 }
+
+alias vimfiles='cd "$HOME/vimfiles"'
 
 
 #---------------------------- personalization -----------------------------
