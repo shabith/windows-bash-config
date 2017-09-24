@@ -1,0 +1,169 @@
+#gitignore.io generator
+function gig() {
+	curl https://www.gitignore.io/api/"$1" | clip;
+	echo "Copied to clipboard!";
+}
+
+# GitHub URL for current repo. https://gist.github.com/ehamiter/2f28607b63d5cd6c2cfa
+# Opens the github page for the current git repo/branch in your browser
+function gh() {
+  giturl=$(git config --get remote.origin.url)
+  if [ "$giturl" == "" ]
+    then
+     echo "Not a git repository or no remote.origin.url set"
+     exit 1;
+  fi
+
+  giturl=${giturl/git\@github\.com\:/https://github.com/}
+  giturl=${giturl/\.git}
+  branch="$(git symbolic-ref HEAD 2>/dev/null)" ||
+  branch=""     # detached HEAD
+  branch=${branch##refs/heads/}
+  tree="/tree/"
+  giturl=$giturl$tree$branch
+  start chrome $giturl
+}
+
+# A better git clone
+# clones a repository, cds into it, and opens it in my editor.
+#
+# Based on https://github.com/stephenplusplus/dots/blob/master/.bash_profile#L68 by @stephenplusplus
+#
+# Note: `code` is already setup as a shortcut to Visual Studio Code. Replace with your own editor if different
+#
+# - arg 1 - url|username|repo remote endpoint, username on github, or name of
+#           repository.
+# - arg 2 - (optional) name of repo
+#
+# usage:
+#   $ clone things
+#     .. git clone git@github.com:addyosmani/things.git things
+#     .. cd things
+#     .. code .
+#
+#   $ clone yeoman generator
+#     .. git clone git@github.com:yeoman/generator.git generator
+#     .. cd generator
+#     .. code .
+#
+#   $ clone git@github.com:addyosmani/dotfiles.git
+#     .. git clone git@github.com:addyosmani/dotfiles.git dotfiles
+#     .. cd dots
+#     .. code .
+
+function clone {
+ # customize username to your own
+ local username="shabith"
+
+ local url=$1;
+ local repo=$2;
+
+ if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]
+ then
+   # just clone this thing.
+   repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
+ elif [[ -z $repo ]]
+ then
+   # my own stuff.
+   repo=$url;
+   url="git@github.com:$username/$repo";
+ else
+   # not my own, but I know whose it is.
+   url="git@github.com:$url/$repo.git";
+ fi
+
+ git clone $url $repo && cd $repo && code .;
+}
+
+# simple git log
+# usage glr v0.2.2 v0.2.3
+function glr() {
+    git log $1 $2 --pretty=format:'* %h %s' --date=short --no-merges
+}
+
+# find shorthand
+function f() {
+    find . -name "$1"
+}
+
+# take this repo and copy it to somewhere else minus the .git stuff.
+function gitexport(){
+    mkdir -p "$1"
+    git archive master | tar -x -C "$1"
+}
+
+# Create a new directory and enter it
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+# Determine size of a file or total size of a directory
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+# # Use Git’s colored diff when available
+# hash git &>/dev/null;
+# if [ $? -eq 0 ]; then
+# 	function diff() {
+# 		git diff --no-index --color-words "$@";
+# 	}
+# fi;
+
+# Create a git.io short URL
+function gitio() {
+	if [ -z "${1}" -o -z "${2}" ]; then
+		echo "Usage: \`gitio slug url\`";
+		return 1;
+	fi;
+	curl -i https://git.io/ -F "url=${2}" -F "code=${1}";
+}
+
+# `c` with no arguments opens the current directory in Visual Studio Code, otherwise
+# opens the given location
+function c() {
+	if [ $# -eq 0 ]; then
+		code .;
+	else
+		code "$@";
+	fi;
+}
+
+# `a` with no arguments opens the current directory in Atom Editor, otherwise
+# opens the given location
+function a() {
+	if [ $# -eq 0 ]; then
+		atom .;
+	else
+		atom "$@";
+	fi;
+}
+
+# `v` with no arguments opens the current directory in Vim, otherwise opens the
+# given location
+function v() {
+	if [ $# -eq 0 ]; then
+		vim .;
+	else
+		vim "$@";
+	fi;
+}
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+function o() {
+	if [ $# -eq 0 ]; then
+		explorer .;
+	else
+		explorer "$@";
+	fi;
+}

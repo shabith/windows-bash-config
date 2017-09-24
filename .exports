@@ -1,0 +1,2 @@
+# Make ST3 the default editor
+export EDITOR="code "

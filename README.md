@@ -1,96 +1,37 @@
-SkilStak Bash Config
+Git Bash Config
 ====================
 
-A repo-centric bash config designed mainly for Ubuntu Linux and the
-SkilStak Desktop on a Stick ([skilstak.io][]) but others
-can maybe find use for it.
+A repo-centric bash config designed for [Git BASH](https://git-for-windows.github.io/) - git for windows
 
-While this works on Mac and Windows (if you must) try to use it from
-the Linux VM referenced or your own for best use.
+Features
+========
 
-Reasoning 
-=========
+#### 1. Functions - `.functions`
+| Function name | Description  | How to use |
+| --- |---|---|
+| `gig` |  use [gitignore.io]() to generate gitignore file and copy that to clipboard | eg: `gig windows,visualStudioCode,node` |
+| `gh` | open gihub page of the repo | `gh` |
+| `clone` | based on [@stephenplusplus  dotfile](https://github.com/stephenplusplus/dots/blob/master/.bash_profile) by @stephenplusplus <br /><br /> **arg 1** - url &#124; username &#124; repo remote endpoint, username on github, or name of repository. <br /><br />**arg 2** - (`optional`) name of repo | eg1: `clone window-bash-config` <br /> <br /> eg2: `clone yeoman generator`<br /><br /> eg3: `clone git@github.com:addyosmani/dotfiles.git`|
+| `glr` | simple git log | `glr` |
+| `f` | find shorthand<br /><br />**arg1** - filename | eg: `f README.md` |
+| `gitexport` | take this repo and copy it to somewhere else minus the .git stuff.<br /><br /> **arg1** - path to export | eg: `gitexport '~/static/'` |
+| `mkd` | Create a new directory and enter it | eg: `mkd hello-world` |
+| `fs` | # Determine size of a file or total size of a directory | eg: `fs` |
+| `gitio` | Create a git.io short URL<br /><br > **arg1** - code to setup your own vanity URL <br /><br /> **arg2** - github URL | eg: `gitio shabi http://github.com/shabith` |
+| `o` | with no arguments opens the current directory, otherwise opens the given location | eg1: `o` <br /><br /> eg2: `o directory` |
+| `v` | with no arguments opens the current directory in Vim, otherwise opens the given location | eg1: `v` <br /><br /> eg2: `v directory` |
+| `a` | with no arguments opens the current directory in Atom, otherwise opens the given location | eg1: `a` <br /><br /> eg2: `a directory` |
+| `c` | with no arguments opens the current directory in Visual Studio Code, otherwise opens the given location | eg1: `c` <br /><br /> eg2: `c directory` |
 
-At SkilStak Coding Arts we assume *everything* we use comes from one of
-five places:
 
-1. The operating system (think ISOs and VMs)
-2. A package manager (think `apt-get` and `dpkg`)
-3. A git repo (think, well, `git`)
-4. A cloud storage service (think Dropbox or Google Drive)
-5. A personal USB drive that has been backed up to a computer.
-
-Anything worth keeping is in one of those places (or should be) and
-anything not in one of these four places should be considered
-expendable.
-
-This means you lose next to nothing when your machine dies or you forgot
-it and have to use another one, (which is frequently required to maintain
-sanity in an classroom or working environment).
-
-What does it do?
-================
-
-* Builds paths from executables in `~/repos/*` and `~/repos/*/bin`
-* Adds a `repo` command with tab completion
-* Adds [powergit][] command line aliases and functions
-* Adds solarized color palette (yes even to windows) and variables
-* Adds `~/vimfiles` and vim-centric aliases
-* Adds `ssh` tab-completion based on `.ssh/config` and utils 
-* Adds aliases, filters, functions for jekyll blogging (`com`, `me`)
-* Adds a `note` command with tab completion
-* Uses a `bigprompt` to help beginners feel safer
-* Has `medprompt`, `pwdprompt`, and `noprompt` options as well
-* Fixes many windows-centricities with `git-bash`
-
-I realize this isn't for everyone. It's rather opinionated and originally
-designed to provide a consistent (and yes branded) command-line shell
-experience for beginners that just want to get up and running while they
-learn to become bash shell commanders later (with their own bashrcs
-and such).
-
-SkilStak Ubuntu Desktop/Server on a Stick
-=========================================
-
-Another option for beginners (and educators) is to just download the
-SkilStak Server or Desktop on a Stick Ubuntu Linux Server images from
-[skilstak.io][]. It just needs the free version of VMWare Player to use
-and allows a highly-recommended native Linux server experience. 
-We've put all the latest tools on it as well to reduce installation
-time if you are in class or working on class projects.
-
-Using a VM: 
-
-* Eliminates quirks from different operating system shells
-* Allows easy backups of the entire dev env including automation
-* Can be downloaded or uploaded from cloud hosting
-
-At a maximum of 2GB RAM, this is particularly useful for emulating
-a cloud-hosted development environment all web and mobile app
-developers need. Keep in mind only one VMware image per machine is
-possible with the free version of vmware player.
-
-This is particularly recommended for those stuck with Windows since no
-matter how much you optimize and pretty-up the Windows git-bash
-experience the command-line remains insanely slow, choppy, and buggy.
 
 Getting Started
 ===============
 
   ```
   cd ~
-  git clone https://github.com/skilstak/config
+  git clone https://github.com/shabith/windows-bash-config
   cd config
   . setup
 
   ```
-
-You can personalize and extend this by adding a `repos/personal/bashrc`
-and/or `repos/private/bashrc`, which is called from the main
-`config/bashrc`.
-
-Or you can just fork https://github.com/skilstak/config and maintain
-your own pulls once you understand all that entails.
-
-[powergit]: http://github.com/skilstak/powergit
-[skilstak.io]: http://skilstak.io

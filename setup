@@ -1,10 +1,20 @@
 #!/bin/bash
 
 ## Prefer a single file to rule them all.
+echo "getting the best things from the github..."
+# https://github.com/rupa/z
+# z, oh how i love you
+git clone https://github.com/rupa/z.git "$HOME/deps/z"
+chmod +x "$HOME/deps/z/z.sh"
+
+echo "DONE!"
+echo " "
+echo "Please make sure below applications are already installed."
+echo "Visual Studio Code - https://code.visualstudio.com/"
+
 
 . bashrc
+
 bash_setup
-git_setup
-vim_setup
 
 #echo "bash should now be setup, restart a terminal to confirm"
