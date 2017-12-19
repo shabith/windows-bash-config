@@ -62,3 +62,7 @@ alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 #program related
 alias mongod="/c/Program\ files/MongoDB/Server/3.4/bin/mongod.exe"
 alias mongo="/c/Program\ Files/MongoDB/Server/3.4/bin/mongo.exe"
+
+#scss related
+alias scss-watch="sass --watch scss/:css/ -l --style expanded"
+alias scss-watch-compress="sass --watch scss/:css/ --style compressed"
