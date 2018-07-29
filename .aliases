@@ -66,3 +66,9 @@ alias mongo="/c/Program\ Files/MongoDB/Server/3.4/bin/mongo.exe"
 #scss related
 alias scss-watch="sass --watch scss/:css/ -l --style expanded"
 alias scss-watch-compress="sass --watch scss/:css/ --style compressed"
+
+#wp-cli - wordpress cli
+alias wp="php ~/wp-cli.phar"
+
+#mysql - xampp
+alias mysql="/c/xampp/mysql/bin/mysql.exe"
