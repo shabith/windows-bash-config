@@ -30,7 +30,7 @@ Getting Started
 
   ```
   cd ~
-  git clone https://github.com/shabith/windows-bash-config
+  git clone https://github.com/shabith/windows-bash-config config
   cd config
   . setup
 
