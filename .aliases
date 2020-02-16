@@ -72,3 +72,4 @@ alias wp="php ~/wp-cli.phar"
 
 #mysql - xampp
 alias mysql="/c/xampp/mysql/bin/mysql.exe"
+alias createdb="/c/Program\ Files/PostgreSQL/12/bin/createdb.exe"
